@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7fd187fa-9e91-418a-aa9f-255ff500b0dd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/SAM-Microfluidics.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Circularity.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cropping.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Default_masking.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DropletPNGS/30_30_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DropletPNGS/30_30_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DropletPNGS/30_30_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DropletPNGS/30_30_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DropletPNGS/30_30_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DropletPNGS/45_30_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DropletPNGS/45_30_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DropletPNGS/45_30_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DropletPNGS/45_30_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DropletPNGS/45_30_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DropletPNGS/60_30_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DropletPNGS/60_30_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DropletPNGS/60_30_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DropletPNGS/60_30_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DropletPNGS/60_30_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DropletPNGS/75_30_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DropletPNGS/75_30_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DropletPNGS/75_30_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DropletPNGS/75_30_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DropletPNGS/75_30_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SAMMirco.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Test_Env.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cocoviewer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/help_me.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mask_1.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results.csv" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jupyter Notebook" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2ik6GSz2G5uDHWCGi2loiH2fWHr" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.Circularity.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Default_masking.executor&quot;: &quot;Run&quot;,
+    &quot;Python.help_me.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/Dynames/School/LabWork/SAM-Microfluidics&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Dynames/School/LabWork/SAM-Microfluidics&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Dynames\School\LabWork\SAM-Microfluidics" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-5a2391486177-2887949eec09-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.13763.11" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7fd187fa-9e91-418a-aa9f-255ff500b0dd" name="Changes" comment="" />
+      <created>1720022131178</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1720022131178</updated>
+      <workItem from="1720022148692" duration="3333000" />
+      <workItem from="1720027310128" duration="1878000" />
+      <workItem from="1720037051865" duration="5698000" />
+      <workItem from="1720191718979" duration="3443000" />
+      <workItem from="1720209725367" duration="63000" />
+      <workItem from="1720216602150" duration="1359000" />
+      <workItem from="1720468169765" duration="1971000" />
+      <workItem from="1720536846901" duration="5546000" />
+      <workItem from="1720626910412" duration="8000" />
+      <workItem from="1720628729645" duration="8600000" />
+      <workItem from="1720652229350" duration="1095000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/SAM_Microfluidics$Circularity.coverage" NAME="Circularity Coverage Results" MODIFIED="1720542714271" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SAM_Microfluidics$Default_masking.coverage" NAME="Default_masking Coverage Results" MODIFIED="1720194955633" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SAM_Microfluidics$help_me.coverage" NAME="help_me Coverage Results" MODIFIED="1720640775605" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
