@@ -8,11 +8,13 @@ def select_keys(dictionary, keys, index):
     result['index'] = index
     return result
 
+
 def check_bound_iterator(res, desired_keys, image_dim=(1440, 1080)):
     for index, dictionary in enumerate(res):
-        if (0 <= dictionary["bbox"][0] < image_dim[0] - dictionary["bbox"][2] and
-            0 <= dictionary["bbox"][1] < image_dim[1] - dictionary["bbox"][3]):
+        if (0 < dictionary["bbox"][0] < image_dim[1] - 1 - dictionary["bbox"][2] and
+                0 < dictionary["bbox"][1] < image_dim[0] - 2 - dictionary["bbox"][3]):
             yield select_keys(dictionary, desired_keys, index)
+
 
 def expand_bbox(row):
     if 'bbox' in row:
@@ -24,10 +26,13 @@ def expand_bbox(row):
 
 
 def draw_mask(img, mask):
-    color_mask = np.zeros_like(img)
-    color_mask[mask > .5] = np.random.randint(0, high=255, size=(3), dtype=int)  # Choose any color you like
-    masked_image = cv2.addWeighted(img, 0.6, color_mask, 0.4, 0)
-    return cv2.cvtColor(masked_image, cv2.COLOR_RGB2BGR)
+    colored_mask = np.expand_dims(mask, 0).repeat(3, axis=0)
+    colored_mask = np.moveaxis(colored_mask, 0, -1)
+    masked = np.ma.MaskedArray(img, mask=colored_mask, fill_value=np.random.randint(0, high=255, size=(3), dtype=int))
+    image_overlay = masked.filled()
+    masked_image = cv2.addWeighted(img, 0.6, image_overlay, 0.4, 0)
+
+    return masked_image
 
 
 def ensure_directory(path):
