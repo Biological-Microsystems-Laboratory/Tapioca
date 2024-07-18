@@ -1,18 +1,40 @@
 import cv2
 import math
+import matplotlib.pyplot as plt
 
-Gray_image = cv2.imread("mask_1.bmp", cv2.IMREAD_GRAYSCALE)
-copy = cv2.cvtColor(Gray_image, cv2.COLOR_GRAY2RGB)
-cnt, her = cv2.findContours(Gray_image, cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
-Perimeter = cv2.arcLength(cnt[0], True)
-Area = cv2.contourArea(cnt[0])
-test = cv2.drawContours(copy, cnt, -1, (255,255,0), -1)
-Circularity = math.pow(Perimeter, 2) / (4 * math.pi * Area)
-cv2.drawContours(Gray_image, cnt, -1, (0, 255, 0), 3)
 
-cv2.imshow('Contours', test)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+def get_contour(large_mask):
+    contours, hierarchy = cv2.findContours(large_mask, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+    return contours[0]
 
-print(round(Circularity, 2))
 
+def process_image(mask, row):
+    contour = get_contour(large_mask=mask)
+    Perimeter = cv2.arcLength(contour, True)
+    row["perimeter(um)"] = Perimeter / row["scale (um/px)"]
+    row["area(um)"] = row["area"] / (row["scale (um/px)"] ** 2)
+    row["circularity"] = (row["perimeter(um)"] ** 2) / (4 * math.pi * row["area(um)"])
+
+    M = cv2.moments(contour)
+    cX = int(M["m10"] / M["m00"])
+    cY = int(M["m01"] / M["m00"])
+
+    row["centroid_x"] = cX
+    row["centroid_y"] = cY
+
+    # mask = cv2.cvtColor(mask, cv2.COLOR_GRAY2BGR)
+    # cv2.circle(mask, (cX, cY), 5, 255, -1)
+    # cv2.putText(mask, f"circ: {row["circularity"]}", (cX - 25, cY - 25), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
+    # # display the image
+    # cv2.imshow("Image", mask)
+    # cv2.waitKey(0)
+    if row["circularity"] > 1.16:
+        return True
+    else:
+        return False
+
+# test = cv2.imread("30_30_1/Masks/large_0.bmp", cv2.IMREAD_GRAYSCALE)
+# test_norm = cv2.imread("30_30_1/Masks/large_0.bmp", cv2.IMREAD_COLOR)
+#
+# # cv2.imshow("Processed Image", test)
+# print(process_image(test))
