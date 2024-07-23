@@ -3,23 +3,13 @@ from PIL import Image # (pip install Pillow)
 import numpy as np
 import os
 
-# make a black image that is the same size as the original (1080 x 1440)
+# get the number of masks
 
-    image_id = 1
-    id = 1
-    for file in folder:
-        gary_mask = cv2.imread(file, cv2.IMREAD_GRAYSCALE)
-        mask = np.array(gary_mask, dtype=bool)
-        poly = binary_mask_to_poly(mask)
+HOME = "" # folder with the same name as the original image
+PATH_MASKS = "" # path to masks from the HOME dir
+PATH_IMAGES = "" # path to raw images
 
-        bbox = poly.bounding_box
+from glob import glob
 
-        annotation = {
-            'segmentation': np.array(poly.exterior.coords).ravel().tolist(),
-            'iscrowd': 0,
-            'image_id': folder
-            # 'category_id': category_id, (1 = droplet, 2 = obstruction)
-            # 'id': annotation_id, iterater for every file in current folder
-            'bbox': bbox,
-            'area': area
-        }
+print(glob(PATH_MASKS))
+

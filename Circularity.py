@@ -29,8 +29,10 @@ def process_image(mask, row):
     # cv2.imshow("Image", mask)
     # cv2.waitKey(0)
     if row["circularity"] > 1.16:
+        row["droplet"] = False
         return True
     else:
+        row["droplet"] = True
         return False
 
 # test = cv2.imread("30_30_1/Masks/large_0.bmp", cv2.IMREAD_GRAYSCALE)
