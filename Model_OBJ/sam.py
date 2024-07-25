@@ -4,7 +4,7 @@ from segment_anything import sam_model_registry, SamAutomaticMaskGenerator, SamP
 
 class SAM:
 
-    MODEL_TYPE = "vit_h"
+    MODEL_TYPE = "sam.py"
     keys = ["area", "bbox", "predicted_iou", "point_coords", "segmentation"]
 
     def __init__(self, DEVICE, HOME = os.getcwd()):

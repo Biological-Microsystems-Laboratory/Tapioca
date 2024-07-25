@@ -28,7 +28,7 @@ def process_image(mask, row):
     # # display the image
     # cv2.imshow("Image", mask)
     # cv2.waitKey(0)
-    if row["circularity"] > 1.16:
+    if row["circularity"] > 1.16 or row["area"] <= 1000:
         row["droplet"] = False
         return True
     else:
