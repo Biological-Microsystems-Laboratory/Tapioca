@@ -8,7 +8,7 @@ import glob
 # get the number of masks
 
 HOME = "30_30_1" # folder with the same name as the original image
-SEG_HOME = ""
+SEG_HOME = "Results"
 PATH_MASKS = "30_30_1/Masks" # path to masks from the HOME dir
 PATH_IMAGES = "DropletPNGS" # path to raw images
 
@@ -35,8 +35,8 @@ for file in os.listdir(PATH_IMAGES):
             # cv2.waitKey(0)
             # print(mask_img)
             # print(mask, hue)
-        plt.imshow(total_mask)
-        plt.show()
+        # plt.imshow(total_mask)
+        # plt.show()
         cv2.imwrite(os.path.join(seg_dir, "mask.tiff"), total_mask)
 
     else:

@@ -14,11 +14,15 @@ def process_image(mask, row):
     row["perimeter(um)"] = Perimeter / row["scale (um/px)"]
     row["area(um)"] = row["area"] / (row["scale (um/px)"] ** 2)
     row["circularity"] = (row["perimeter(um)"] ** 2) / (4 * math.pi * row["area(um)"])
-
-    M = cv2.moments(contour)
-    cX = int(M["m10"] / M["m00"])
-    cY = int(M["m01"] / M["m00"])
-
+    try:
+        M = cv2.moments(contour)
+        cX = int(M["m10"] / M["m00"])
+        cY = int(M["m01"] / M["m00"])
+    except:
+        print("errored out")
+        cX = 0
+        cY = 0
+        
     row["centroid_x"] = cX
     row["centroid_y"] = cY
 

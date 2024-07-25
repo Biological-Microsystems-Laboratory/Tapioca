@@ -7,7 +7,8 @@ import pandas as pd
 import torch
 
 from Circularity import process_image
-from Model_OBJ.MOBILE_sam import Mobile_SAM
+# from Model_OBJ.MOBILE_sam import Mobile_SAM
+from Model_OBJ.sam import SAM
 from help_me import ensure_directory, draw_mask, check_bound_iterator, expand_bbox
 
 HOME = os.getcwd()
@@ -54,6 +55,7 @@ def segment_image(image_bgr, img_name, sam_result, keys, SCALE=6.0755):
         if row["droplet"]:
             color = (np.random.randint(0, high=255, size=3, dtype=int)).tolist()
             cv2.circle(final_image, (row["centroid_x"], row["centroid_y"]), 10, color, -1)
+    print("writing base img: " + str(cv2.imwrite(os.path.join(results_folder, "base.jpg"), image_bgr)))
     print("writing last results: " + str(cv2.imwrite(os.path.join(results_folder, "total_mask.jpg"), final_image)))
     df.to_excel(os.path.join(results_folder, "results.xlsx"), index=False)
     df.to_csv(os.path.join(results_folder, "results.csv"), index=False)
@@ -146,9 +148,12 @@ def save_mask(obj, img, folder_name):  # file_name is defined while we loop so w
 
 # TODO: have to include a function to normalize the picture beforehand
 DEVICE = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
-sam = Mobile_SAM(DEVICE, HOME)
+print(DEVICE)
+sam = SAM(DEVICE, HOME)
 FOLDER_PATH = "DropletPNGS"
+RESULTS = "Results"
 images = os.listdir(FOLDER_PATH)
+true_start = time.time()
 
 for file in images:
     print(f"on file: {file}")
@@ -157,7 +162,7 @@ for file in images:
 
     image_file = os.path.join(FOLDER_PATH, file)
 
-    img_dir = os.path.splitext(os.path.basename(image_file))[0]
+    img_dir = os.path.join(RESULTS, os.path.splitext(os.path.basename(image_file))[0])
     if os.path.isdir(img_dir):
         print(f"already annotated {file}, moving on to next folder")
     else:
@@ -169,5 +174,5 @@ for file in images:
         segment_image(test, img_dir, sam_res, sam.keys)
     print(f"how long it took:    {time.time() - start_time}")
 
-print(f"total time: {time.time() - start_time} for {len(images)} images")
+print(f"total time: {time.time() - true_start} for {len(images)} images")
 # print("hello")
