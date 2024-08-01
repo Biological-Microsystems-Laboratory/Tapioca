@@ -5,6 +5,7 @@ import cv2
 import numpy as np
 import pandas as pd
 import torch
+import matplotlib.pyplot as plt
 
 from Circularity import process_image
 # from Model_OBJ.MOBILE_sam import Mobile_SAM
@@ -150,7 +151,7 @@ def save_mask(obj, img, folder_name):  # file_name is defined while we loop so w
 DEVICE = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 print(DEVICE)
 sam = SAM(DEVICE, HOME)
-FOLDER_PATH = "DropletPNGS"
+FOLDER_PATH = "DropletPNGS/Droplets_tracking"
 RESULTS = "Results"
 images = os.listdir(FOLDER_PATH)
 true_start = time.time()
@@ -166,8 +167,22 @@ for file in images:
     if os.path.isdir(img_dir):
         print(f"already annotated {file}, moving on to next folder")
     else:
-
-        test = cv2.imread(image_file, cv2.IMREAD_COLOR)
+        test = cv2.imread(image_file, cv2.IMREAD_UNCHANGED)
+        if test.dtype == "uint16":
+            print( f"converting {image_file} to uint8 from uint16")
+            print(f"max:{test.max()}, min:{test.min()}")
+            test = cv2.normalize(test, dst=None, alpha=0, beta=255, norm_type=cv2.NORM_MINMAX)
+            test = test.astype('uint8')
+            # cv2.imshow("test", test)
+            # cv2.waitKey(0)
+            # print(test)
+            print(f"max:{test.max()}, min:{test.min()}, shape:{test.shape}, typeL:{test.dtype}")
+            pre, ext = os.path.splitext(image_file)
+            png_file = pre + ".png"
+            
+            # cv2.imwrite(png_file, test)
+        test = cv2.cvtColor(test,cv2.COLOR_GRAY2RGB)
+            
 
         sam_res = sam.generate(test)
 
