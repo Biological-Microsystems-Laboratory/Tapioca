@@ -2,7 +2,7 @@ import os
 import cv2
 import numpy as np
 import colorsys
-from shapely.geometry import Polygon
+# from shapely.geometry import Polygon
 
 def select_keys(dictionary, keys, index):
     result = {key: dictionary[key] for key in keys if key in dictionary}
@@ -16,6 +16,22 @@ def check_bound_iterator(res, desired_keys, image_dim=(1440, 1080)):
                 0 < dictionary["bbox"][1] < image_dim[0] - 2 - dictionary["bbox"][3]):
             yield select_keys(dictionary, desired_keys, index)
 
+def label_droplets(image, df):
+    """
+    Draw circles on the image for each droplet in the DataFrame.
+    
+    Args:
+    image (numpy.ndarray): The image to draw on.
+    df (pandas.DataFrame): DataFrame containing droplet information.
+    
+    Returns:
+    numpy.ndarray: The image with circles drawn on it.
+    """
+    for _, row in df.iterrows():
+        if row["droplet"]:
+            color = np.random.randint(0, high=255, size=3, dtype=int).tolist()
+            cv2.circle(image, (int(row["centroid_x"]), int(row["centroid_y"])), 10, color, -1)
+    return image
 
 def expand_bbox(row):
     if 'bbox' in row:

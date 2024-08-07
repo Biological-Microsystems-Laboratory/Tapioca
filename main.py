@@ -111,6 +111,10 @@ def save_mask(obj, img, folder_name):  # file_name is defined while we loop so w
     print("write large mask: " + str(
         cv2.imwrite(f'{mask_folder}/large_{iterator}.bmp', mask)))  # save binary mask of entire image
     x, y, w, h = obj["bbox"]
+    x = int(x)
+    y = int(y)
+    h = int(h)
+    w = int(w)
     cropped_img = img[y:y + h, x:x + w]
     cropped_mask = mask[y:y + h, x:x + w]
     total_mask = draw_mask(img, mask)

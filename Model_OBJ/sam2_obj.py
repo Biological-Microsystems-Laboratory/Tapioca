@@ -10,7 +10,7 @@ class SAM:
     keys = ["area", "bbox", "predicted_iou", "point_coords", "segmentation"]
 
     def __init__(self, DEVICE, HOME = os.getcwd()):
-        os.environ['TORCH_CUDNN_SDPA_ENABLED'] = '1'
+        # os.environ['TORCH_CUDNN_SDPA_ENABLED'] = '1'
         torch.autocast(device_type="cuda", dtype=torch.bfloat16).__enter__()
         if torch.cuda.get_device_properties(0).major >= 8:
             # turn on tfloat32 for Ampere GPUs (https://pytorch.org/docs/stable/notes/cuda.html#tensorfloat-32-tf32-on-ampere-devices)

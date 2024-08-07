@@ -2,5 +2,6 @@
 /.idea/
 /__pycache__/
 /Results/
+/Results(old)/
 /Model_OBJ/__pycache__/
 /Weights/
