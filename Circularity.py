@@ -5,24 +5,32 @@ import matplotlib.pyplot as plt
 
 def get_contour(large_mask):
     contours, hierarchy = cv2.findContours(large_mask, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
-    return contours[0]
+    return contours
 
 
 def process_image(mask, row):
     contour = get_contour(large_mask=mask)
+    # print(contour)
+    if len(contour) > 1:
+        print("check everything")
+        row["droplet"] = False
+        return False
+    else:
+        contour = contour[0]
     Perimeter = cv2.arcLength(contour, True)
     row["perimeter(um)"] = Perimeter / row["scale (um/px)"]
     row["area(um)"] = row["area"] / (row["scale (um/px)"] ** 2)
     row["circularity"] = (row["perimeter(um)"] ** 2) / (4 * math.pi * row["area(um)"])
-    try:
-        M = cv2.moments(contour)
+    
+
+    M = cv2.moments(contour)
+    if M["m00"] != 0:
         cX = int(M["m10"] / M["m00"])
         cY = int(M["m01"] / M["m00"])
-    except:
-        print("errored out")
-        cX = 0
-        cY = 0
-        
+    else:
+        cX, cY = 0, 0
+        row["droplet"] = False
+
     row["centroid_x"] = cX
     row["centroid_y"] = cY
 
@@ -32,12 +40,12 @@ def process_image(mask, row):
     # # display the image
     # cv2.imshow("Image", mask)
     # cv2.waitKey(0)
-    if row["circularity"] > 1.16 or row["area"] <= 1000:
+    if (row["circularity"] > 1.16) or (row["area"] <= 1000) or (row["circularity"] < 0.5):
         row["droplet"] = False
-        return True
     else:
         row["droplet"] = True
-        return False
+        
+    return row["droplet"]
 
 # test = cv2.imread("30_30_1/Masks/large_0.bmp", cv2.IMREAD_GRAYSCALE)
 # test_norm = cv2.imread("30_30_1/Masks/large_0.bmp", cv2.IMREAD_COLOR)

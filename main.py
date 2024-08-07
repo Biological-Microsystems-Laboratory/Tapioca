@@ -9,10 +9,19 @@ import matplotlib.pyplot as plt
 
 from Circularity import process_image
 # from Model_OBJ.MOBILE_sam import Mobile_SAM
-from Model_OBJ.sam import SAM
+# from Model_OBJ.sam import SAM
+from Model_OBJ.sam2_obj import SAM
 from help_me import ensure_directory, draw_mask, check_bound_iterator, expand_bbox
 
 HOME = os.getcwd()
+DEVICE = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+print(DEVICE)
+# sam = SAM(DEVICE, HOME)
+sam = SAM(HOME) # This line is for SAM 2 bc it wasnt working super well
+FOLDER_PATH = "DropletPNGS"
+RESULTS = "Results"
+images = os.listdir(FOLDER_PATH)
+true_start = time.time()
 
 
 # SCALE is in pixels/um
@@ -34,10 +43,10 @@ def segment_image(image_bgr, img_name, sam_result, keys, SCALE=6.0755):
         segment["scale (um/px)"] = SCALE
         # print(segment["index"])
         mask = (segment["segmentation"] * 255).astype(np.uint8)
-        not_droplet = process_image(mask, segment)
+        droplet = process_image(mask, segment)
 
-        if not_droplet:
-            wrong_folder = os.path.join(results_folder, "not_droplet")
+        if not droplet:
+            wrong_folder = os.path.join(results_folder, "droplet")
             print(wrong_folder, "; exist:", os.path.isfile(wrong_folder))
             final_image = save_mask(segment, final_image, wrong_folder)
         else:
@@ -55,7 +64,7 @@ def segment_image(image_bgr, img_name, sam_result, keys, SCALE=6.0755):
     for index, row in df.iterrows():
         if row["droplet"]:
             color = (np.random.randint(0, high=255, size=3, dtype=int)).tolist()
-            cv2.circle(final_image, (row["centroid_x"], row["centroid_y"]), 10, color, -1)
+            cv2.circle(final_image, (int(row["centroid_x"]), int(row["centroid_y"])), 10, color, -1)
     print("writing base img: " + str(cv2.imwrite(os.path.join(results_folder, "base.jpg"), image_bgr)))
     print("writing last results: " + str(cv2.imwrite(os.path.join(results_folder, "total_mask.jpg"), final_image)))
     df.to_excel(os.path.join(results_folder, "results.xlsx"), index=False)
@@ -114,6 +123,32 @@ def save_mask(obj, img, folder_name):  # file_name is defined while we loop so w
         cv2.imwrite(f'{mask_folder}/crop_mask_{iterator}.jpg', cropped_mask)))  # save droplet mask
     return total_mask
 
+def ingest(file, RESULTS=RESULTS, FOLDER_PATH=FOLDER_PATH):
+    image_file = os.path.join(FOLDER_PATH, file)
+    img_dir = os.path.join(RESULTS, os.path.splitext(os.path.basename(image_file))[0])
+    if os.path.isdir(img_dir):
+        test = None
+        print(f"already annotated {file}, moving on to next folder")
+    else:
+        annotated = False
+        test = cv2.imread(image_file, cv2.IMREAD_UNCHANGED)
+        if test.dtype == "uint16":
+            print( f"converting {image_file} to uint8 from uint16")
+            print(f"max:{test.max()}, min:{test.min()}")
+            test = cv2.normalize(test, dst=None, alpha=0, beta=255, norm_type=cv2.NORM_MINMAX)
+            test = test.astype('uint8')
+            # cv2.imshow("test", test)
+            # cv2.waitKey(0)
+            # print(test)
+            print(f"max:{test.max()}, min:{test.min()}, shape:{test.shape}, typeL:{test.dtype}")
+            pre, ext = os.path.splitext(image_file)
+            png_file = pre + ".png"
+            
+            # cv2.imwrite(png_file, test)
+        test = cv2.cvtColor(test,cv2.COLOR_GRAY2RGB)
+    return test, img_dir
+            
+
 
 #
 # def save_results(results, keys, filename="results.csv"):
@@ -147,46 +182,14 @@ def save_mask(obj, img, folder_name):  # file_name is defined while we loop so w
 #
 
 
-# TODO: have to include a function to normalize the picture beforehand
-DEVICE = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
-print(DEVICE)
-sam = SAM(DEVICE, HOME)
-FOLDER_PATH = "DropletPNGS/Droplets_tracking"
-RESULTS = "Results"
-images = os.listdir(FOLDER_PATH)
-true_start = time.time()
-
 for file in images:
     print(f"on file: {file}")
 
     start_time = time.time()
-
-    image_file = os.path.join(FOLDER_PATH, file)
-
-    img_dir = os.path.join(RESULTS, os.path.splitext(os.path.basename(image_file))[0])
-    if os.path.isdir(img_dir):
-        print(f"already annotated {file}, moving on to next folder")
-    else:
-        test = cv2.imread(image_file, cv2.IMREAD_UNCHANGED)
-        if test.dtype == "uint16":
-            print( f"converting {image_file} to uint8 from uint16")
-            print(f"max:{test.max()}, min:{test.min()}")
-            test = cv2.normalize(test, dst=None, alpha=0, beta=255, norm_type=cv2.NORM_MINMAX)
-            test = test.astype('uint8')
-            # cv2.imshow("test", test)
-            # cv2.waitKey(0)
-            # print(test)
-            print(f"max:{test.max()}, min:{test.min()}, shape:{test.shape}, typeL:{test.dtype}")
-            pre, ext = os.path.splitext(image_file)
-            png_file = pre + ".png"
-            
-            # cv2.imwrite(png_file, test)
-        test = cv2.cvtColor(test,cv2.COLOR_GRAY2RGB)
-            
-
-        sam_res = sam.generate(test)
-
-        segment_image(test, img_dir, sam_res, sam.keys)
+    pp_img, img_dir = ingest(file)
+    if pp_img is not None:
+        sam_res = sam.generate(pp_img)
+        segment_image(pp_img, img_dir, sam_res, sam.keys)
     print(f"how long it took:    {time.time() - start_time}")
 
 print(f"total time: {time.time() - true_start} for {len(images)} images")
