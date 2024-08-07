@@ -11,7 +11,8 @@ from Circularity import process_image
 # from Model_OBJ.MOBILE_sam import Mobile_SAM
 # from Model_OBJ.sam import SAM
 from Model_OBJ.sam2_obj import SAM
-from help_me import ensure_directory, draw_mask, check_bound_iterator, expand_bbox
+
+from help_me import distance_from_origin, ensure_directory, draw_mask, check_bound_iterator, expand_bbox, label_droplets_circle, label_droplets_indices
 
 HOME = os.getcwd()
 DEVICE = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
@@ -24,53 +25,59 @@ images = os.listdir(FOLDER_PATH)
 true_start = time.time()
 
 
+
 # SCALE is in pixels/um
 def segment_image(image_bgr, img_name, sam_result, keys, SCALE=6.0755):
-    # mask_generator = SamAutomaticMaskGenerator(sam)
-    # image_rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
-    # sam_result = mask_generator.generate(image_rgb)  # the actual segmentation of a picture
-    print(len(sam_result))  # how many objects we got
+    print(f"Number of objects: {len(sam_result)}")
+    sam_result = sorted(sam_result, key=distance_from_origin)
 
-    # create the folder to hold all the results
+    # Create the folder to hold all the results
     results_folder = os.path.join(HOME, img_name)
-    print(results_folder, "; exist:", os.path.isfile(results_folder))
+    print(f"Results folder: {results_folder}, exists: {os.path.isfile(results_folder)}")
     ensure_directory(results_folder)
 
     final_image = image_bgr.copy()
     df = pd.DataFrame()
-    # loop over every result while filtering edge cases and saving the images
+
+    # Process each segment
     for segment in check_bound_iterator(sam_result, keys, image_bgr.shape):
         segment["scale (um/px)"] = SCALE
-        # print(segment["index"])
         mask = (segment["segmentation"] * 255).astype(np.uint8)
         droplet = process_image(mask, segment)
 
+        # Save mask and update final image
         if not droplet:
-            wrong_folder = os.path.join(results_folder, "droplet")
-            print(wrong_folder, "; exist:", os.path.isfile(wrong_folder))
+            wrong_folder = os.path.join(results_folder, "not_droplet")
+            print(f"Wrong folder: {wrong_folder}, exists: {os.path.isfile(wrong_folder)}")
             final_image = save_mask(segment, final_image, wrong_folder)
         else:
             final_image = save_mask(segment, final_image, results_folder)
-        print(f"finished {segment['index']}")
 
+        print(f"Finished processing segment {segment['index']}")
+
+        # Update segment data
         del segment["segmentation"]
-
-        # print(segment.keys())
         segment.update(expand_bbox(segment))
-        if segment != {}:
+
+        # Add segment data to DataFrame
+        if segment:
             new = pd.DataFrame.from_dict(segment)
             df = pd.concat([df, new], ignore_index=True)
+
     df.set_index('index')
-    for index, row in df.iterrows():
-        if row["droplet"]:
-            color = (np.random.randint(0, high=255, size=3, dtype=int)).tolist()
-            cv2.circle(final_image, (int(row["centroid_x"]), int(row["centroid_y"])), 10, color, -1)
-    print("writing base img: " + str(cv2.imwrite(os.path.join(results_folder, "base.jpg"), image_bgr)))
-    print("writing last results: " + str(cv2.imwrite(os.path.join(results_folder, "total_mask.jpg"), final_image)))
+
+    # Draw circles for droplets on final image
+    final_image = label_droplets_circle(final_image, df)
+    final_image = label_droplets_indices(final_image, df)
+    
+
+    # Save results
+    print(f"Writing base image: {cv2.imwrite(os.path.join(results_folder, 'base.jpg'), image_bgr)}")
+    print(f"Writing final result: {cv2.imwrite(os.path.join(results_folder, 'total_mask.jpg'), final_image)}")
     df.to_excel(os.path.join(results_folder, "results.xlsx"), index=False)
     df.to_csv(os.path.join(results_folder, "results.csv"), index=False)
-
-
+    
+    
 """### Output format
 
 `SamAutomaticMaskGenerator` returns a `list` of masks, where each mask is a `dict` containing various information about the mask:
