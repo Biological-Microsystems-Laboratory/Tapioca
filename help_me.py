@@ -110,9 +110,7 @@ def distance_from_origin(segment):
     x, y = segment["point_coords"][0]
     return np.sqrt(x**2 + y**2)
 
-def run_stats(df):
-    fig, ax = plt.subplots(nrows=2, ncols=2)
-    
+  
 
 # def generate_distinct_color_bgr(index):
 #     golden_ratio_conjugate = 0.618033988749895
