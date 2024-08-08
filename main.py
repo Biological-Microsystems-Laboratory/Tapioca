@@ -28,9 +28,10 @@ true_start = time.time()
 
 
 # SCALE is in pixels/um
-def segment_image(image_bgr, img_name, sam_result, keys, SCALE=6.0755):
+def segment_image(image_bgr, img_name, sam_result, keys, SCALE=6.0755, DEBUG = False):
     print(f"Number of objects: {len(sam_result)}")
-    sam_result = sorted(sam_result, key=distance_from_origin)
+    # sam_result = sorted(sam_result, key=distance_from_origin)
+    sam_result = sorted(sam_result, key=lambda segment: (segment["point_coords"][0][0], segment["point_coords"][0][1]))
 
     # Create the folder to hold all the results
     results_folder = os.path.join(HOME, img_name)
@@ -50,9 +51,9 @@ def segment_image(image_bgr, img_name, sam_result, keys, SCALE=6.0755):
         if not droplet:
             wrong_folder = os.path.join(results_folder, "not_droplet")
             print(f"Wrong folder: {wrong_folder}, exists: {os.path.isfile(wrong_folder)}")
-            final_image = save_mask(segment, final_image, wrong_folder)
+            final_image = save_mask(segment, final_image, wrong_folder, DEBUG=DEBUG)
         else:
-            final_image = save_mask(segment, final_image, results_folder)
+            final_image = save_mask(segment, final_image, results_folder, DEBUG=DEBUG)
 
         print(f"Finished processing segment {segment['index']}")
 
@@ -93,7 +94,7 @@ def segment_image(image_bgr, img_name, sam_result, keys, SCALE=6.0755):
 """
 
 
-def save_mask(obj, img, folder_name):  # file_name is defined while we loop so we create the big folder outside
+def save_mask(obj, img, folder_name, DEBUG: bool = False):  # file_name is defined while we loop so we create the big folder outside
     """" e.g. HOME
                30_30_1_res
                  Masks
@@ -103,38 +104,37 @@ def save_mask(obj, img, folder_name):  # file_name is defined while we loop so w
                  results.csv
     """
 
-    # ensure directories
-    mask_folder = os.path.join(folder_name, "Masks")
-    comb_folder = os.path.join(folder_name, "Combined")
-    droplet_folder = os.path.join(folder_name, "droplets")
+    folders = ["Masks", "droplets"]
+    for i, folder in enumerate(folders):
+        folders[i] = os.path.join(folder_name, folder)
+        ensure_directory(folders[i])
 
-    ensure_directory(mask_folder)
-    ensure_directory(comb_folder)
-    ensure_directory(droplet_folder)
     mask = (obj["segmentation"] * 255).astype(np.uint8)
+    iterator = obj["index"]
+    
     # area = obj["area"]
     # print(get_contour(mask))
-
-    iterator = obj["index"]
-    print("write large mask: " + str(
-        cv2.imwrite(f'{mask_folder}/large_{iterator}.bmp', mask)))  # save binary mask of entire image
+    # f'{folders[0]}/large_{iterator}.bmp'
+    mask_name = os.path.join(folders[0], f"large_{iterator}.bmp")
+    print("write large mask: " + str(cv2.imwrite(mask_name, mask)))  # save binary mask of entire image
     x, y, w, h = obj["bbox"]
     x = int(x)
     y = int(y)
     h = int(h)
     w = int(w)
     cropped_img = img[y:y + h, x:x + w]
-    cropped_mask = mask[y:y + h, x:x + w]
     total_mask = draw_mask(img, mask)
-    comb_crop = total_mask[y:y + h, x:x + w]
+    if DEBUG:
+        folders.append(os.path.join(folder_name, "Combined"))
+        ensure_directory(folders[2])        
+        comb_crop = total_mask[y:y + h, x:x + w]
+        cropped_mask = mask[y:y + h, x:x + w]
+        print("write combined image: " + str(cv2.imwrite(f"{folders[2]}/{iterator}.jpg", comb_crop)))  # save just the droplet
+        print("write cropped mask: " + str(cv2.imwrite(f'{folders[0]}/crop_mask_{iterator}.jpg', cropped_mask)))  # save droplet mask
+    
     
     # make combined and cropped mask as a toggleable 
-    print("write combined image: " + str(
-        cv2.imwrite(f"{comb_folder}/{iterator}.jpg", comb_crop)))  # save just the droplet
-    print("write cropped image: " + str(
-        cv2.imwrite(f"{droplet_folder}/crop_{iterator}.jpg", cropped_img)))  # save just the droplet
-    print("write cropped mask: " + str(
-        cv2.imwrite(f'{mask_folder}/crop_mask_{iterator}.jpg', cropped_mask)))  # save droplet mask
+    print("write cropped image: " + str(cv2.imwrite(f"{folders[1]}/crop_{iterator}.jpg", cropped_img)))  # save just the droplet
     return total_mask
 
 def ingest(file, RESULTS=RESULTS, FOLDER_PATH=FOLDER_PATH):
@@ -198,13 +198,12 @@ def ingest(file, RESULTS=RESULTS, FOLDER_PATH=FOLDER_PATH):
 
 
 class image_segmenter():
+    MODEL = "mSAM"
     DEVICE = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
-    def __init__(self, MODEL = "SAM", RESULTS: Path = None) -> None:
+    def __init__(self, MODEL = "mSAM", RESULTS: Path = Path(f"Results ({MODEL})"), DEBUG: bool = True) -> None:
         self.MODEL = MODEL
-        if RESULTS == None:
-            self.RESULTS_FOLDER = Path(f"Results ({MODEL})")
-        else:
-            self.RESULTS_FOLDER = RESULTS
+        self.DEBUG = DEBUG
+        self.RESULTS_FOLDER = RESULTS
         #import stuff
         
         print(f"Result Directory: {self.RESULTS_FOLDER.mkdir(exist_ok=True)}")
@@ -219,26 +218,44 @@ class image_segmenter():
         
         
         return
-    def _ingest(self,FILE: Path) -> Tuple[Optional[np.ndarray], Path]:
-        
+    def _ingest(self, FILE: Path) -> Tuple[Optional[np.ndarray], Path]:
+        """
+        Process an image file.
+
+        Args:
+            FILE (Path): The path to the image file.
+
+        Returns:
+            Tuple[Optional[np.ndarray], Path]: The processed image (if successful) and the image directory path.
+        """
+        # Construct the image directory path
         img_dir = self.RESULTS_FOLDER / FILE.stem
-        # print(img_dir)
+        
+        # Check if the image directory already exists
         if img_dir.is_dir():
-            test = None
-            print(f"already annotated {file}, moving on to next folder")
-        else:
-            annotated = False
-            test = cv2.imread(str(FILE), cv2.IMREAD_UNCHANGED)
-            if test.dtype == "uint16":
-                print( f"converting {FILE} to uint8 from uint16")
-                # print(f"max:{test.max()}, min:{test.min()}")
-                test = cv2.normalize(test, dst=None, alpha=0, beta=255, norm_type=cv2.NORM_MINMAX)
-                test = test.astype('uint8')
-                png_file = FILE.with_suffix('.png')
-                if not png_file.exists():
-                    cv2.imwrite(png_file, test)
-            test = cv2.cvtColor(test,cv2.COLOR_GRAY2RGB)
-        return test, img_dir
+            # print(f"already annotated {FILE}, moving on to next folder")
+            return None, img_dir
+        
+        # Load the image
+        img = cv2.imread(str(FILE), cv2.IMREAD_UNCHANGED)
+        
+        # Check if the image is in uint16 format
+        if img.dtype == "uint16":
+            print(f"converting {FILE} to uint8 from uint16")
+            # Normalize the image to the range [0, 255]
+            img = cv2.normalize(img, dst=None, alpha=0, beta=255, norm_type=cv2.NORM_MINMAX)
+            # Convert the image to uint8 format
+            img = img.astype('uint8')
+            
+            # Save the processed image as a PNG file
+            png_file = FILE.with_suffix('.png')
+            if not png_file.exists():
+                cv2.imwrite(png_file, img)
+        
+        # Convert the image to RGB format
+        img = cv2.cvtColor(img, cv2.COLOR_GRAY2RGB)
+        
+        return img, img_dir
     
     def gen_seg(self, FILE: Path):
         print(f"on file: {str(FILE)}")
@@ -246,10 +263,10 @@ class image_segmenter():
         start_time = time.time()
         pp_img, img_dir = self._ingest(FILE)
         if pp_img is None:
-            print(f"how long it took:    {time.time() - start_time}")    
+            print(f"Already annoteted: how long it took:    {time.time() - start_time}")    
             return
         sam_res = self.SAM_OBJ.generate(pp_img)
-        segment_image(pp_img, img_dir, sam_res, sam.keys)
+        segment_image(pp_img, img_dir, sam_res, self.SAM_OBJ.keys, DEBUG = self.DEBUG)
         print(f"how long it took:    {time.time() - start_time}")   
         
     def seg_file(self, FILE: Path):
@@ -266,24 +283,36 @@ class image_segmenter():
 # Specify the directory you want to list
 
 directory_path = Path(FOLDER_PATH)  # Replace with your directory path
-def min():
-    # List all objects in the specified directory and get their full paths
-    test = image_segmenter()
-    
+import timeit
+import shutil
+# List all objects in the specified directory and get their full paths
+test = image_segmenter()
+def min(DEBUG):
+
+    test.DEBUG = DEBUG
     for file in directory_path.iterdir():
         if file.is_file() and file.suffix.lower() in {'.tif', '.tiff'}:
             # print(f"on file: {file}")
-
+            
             start_time = time.time()
-            # test._ingest(file)
+            test.gen_seg(file)
+
             # pp_img, img_dir = ingest(file, RESULTS)
             # if pp_img is not None:
             #     sam_res = sam.generate(pp_img)
             #     segment_image(pp_img, img_dir, sam_res, sam.keys)
             # print(f"how long it took:    {time.time() - start_time}")
+    list(directory_path.iterdir())
+    img_dir = test.RESULTS_FOLDER / "30_30_1"
+    shutil.rmtree(str(img_dir))
     # print(f"total time: {time.time() - true_start} for {len(images)} images")
     # print("hello")
     return
 
-from timeit import timeit
-print(timeit(min, number=1))
+times = 10
+t = timeit.Timer(lambda: min(True))
+debug_on = t.timeit(times)
+t = timeit.Timer(lambda: min(False))
+debug_off = t.timeit(times)
+
+print(f"degub_on:   {debug_on}, degub_on:   {debug_off}, ")
