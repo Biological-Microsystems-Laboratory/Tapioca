@@ -3,7 +3,7 @@ import os
 from sam2.build_sam import build_sam2
 from sam2.automatic_mask_generator import SAM2AutomaticMaskGenerator
 
-class SAM:
+class SAM2:
     WEIGHTS_PATH = "F:\Code\SAM-Microfluidic\Weights\sam2_hiera_t.yaml"
     CHECKPOINT_PATH = "F:\Code\SAM-Microfluidic\Weights\sam2_hiera_tiny.pt"
 

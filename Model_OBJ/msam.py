@@ -2,7 +2,7 @@ import os
 from mobile_sam import sam_model_registry, SamAutomaticMaskGenerator, SamPredictor
 
 
-class Mobile_SAM:
+class mSAM:
 
     MODEL_TYPE = "vit_t"
     keys = ["area", "bbox", "predicted_iou", "point_coords", "segmentation"]

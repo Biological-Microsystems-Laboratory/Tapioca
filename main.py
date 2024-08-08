@@ -1,3 +1,4 @@
+import importlib
 import os
 import time
 
@@ -8,19 +9,19 @@ import torch
 import matplotlib.pyplot as plt
 
 from Circularity import process_image
-# from Model_OBJ.MOBILE_sam import Mobile_SAM
-# from Model_OBJ.sam import SAM
-from Model_OBJ.sam2_obj import SAM
+from Model_OBJ.msam import mSAM
+from Model_OBJ.sam import SAM
+# from Model_OBJ.sam2_obj import SAM2
 
 from help_me import distance_from_origin, ensure_directory, draw_mask, check_bound_iterator, expand_bbox, label_droplets_circle, label_droplets_indices
 
 HOME = os.getcwd()
 DEVICE = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 print(DEVICE)
-# sam = SAM(DEVICE, HOME)
-sam = SAM(HOME) # This line is for SAM 2 bc it wasnt working super well
+
+
 FOLDER_PATH = "DropletPNGS"
-RESULTS = "Results"
+RESULTS = "Results (SAM2)"
 images = os.listdir(FOLDER_PATH)
 true_start = time.time()
 
@@ -192,16 +193,46 @@ def ingest(file, RESULTS=RESULTS, FOLDER_PATH=FOLDER_PATH):
 #     return cropped_img
 #
 
+# sam2 = SAM2(HOME) # This line is for SAM 2 bc it wasnt working super well
+sam_orig = SAM(DEVICE, HOME)
+mSAM = mSAM(DEVICE,HOME)
+    
+sams = [
+    # sam2,
+    sam_orig,
+    mSAM]
+folder_ver = [
+    # "sam2",
+    "sam_orig",
+    "mSAM"]
 
-for file in images:
-    print(f"on file: {file}")
+for i, version in enumerate(sams):
+    sam = version
+    RESULTS = f"Results ({folder_ver[i]})"
+    for file in images:
+        print(f"on file: {file}")
 
-    start_time = time.time()
-    pp_img, img_dir = ingest(file)
-    if pp_img is not None:
-        sam_res = sam.generate(pp_img)
-        segment_image(pp_img, img_dir, sam_res, sam.keys)
-    print(f"how long it took:    {time.time() - start_time}")
-
-print(f"total time: {time.time() - true_start} for {len(images)} images")
+        start_time = time.time()
+        pp_img, img_dir = ingest(file, RESULTS)
+        if pp_img is not None:
+            sam_res = sam.generate(pp_img)
+            segment_image(pp_img, img_dir, sam_res, sam.keys)
+        print(f"how long it took:    {time.time() - start_time}")
+    print(f"total time: {time.time() - true_start} for {len(images)} images")
 # print("hello")
+
+class image_segmenter():
+    def __init__(self, MODEL = "SAM") -> None:
+        self.MODEL = MODEL
+        #import stuff
+        
+        module = importlib.import_module("Model_OBJ.sam")
+        MyClass = getattr(module, self.MODEL, None)
+        if self.MODEL == "SAM":
+            module = importlib.import_module("Model_OBJ.sam")
+            MyClass = getattr(module, self.MODEL, None)
+        elif self.MODEL == "mSAM":
+            from Model_OBJ.msam import mSAM
+        elif self.MODEL == "SAM2":
+            from Model_OBJ.sam2_obj import SAM2
+        pass
