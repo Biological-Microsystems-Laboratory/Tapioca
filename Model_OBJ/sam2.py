@@ -8,7 +8,7 @@ class SAM2:
     CHECKPOINT_PATH = "F:\Code\SAM-Microfluidic\Weights\sam2_hiera_tiny.pt"
 
     keys = ["area", "bbox", "predicted_iou", "point_coords", "segmentation"]
-
+    # importlib
     def __init__(self, DEVICE, HOME = os.getcwd()):
         # os.environ['TORCH_CUDNN_SDPA_ENABLED'] = '1'
         torch.autocast(device_type="cuda", dtype=torch.bfloat16).__enter__()

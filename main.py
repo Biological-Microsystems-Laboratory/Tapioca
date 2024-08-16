@@ -67,6 +67,7 @@ def segment_image(image_bgr, img_name, sam_result, keys, SCALE=6.0755, DEBUG = F
             df = pd.concat([df, new], ignore_index=True)
 
     df.set_index('index')
+    return final_image
 
     # Draw circles for droplets on final image
     final_image = label_droplets_circle(final_image, df)
@@ -137,31 +138,31 @@ def save_mask(obj, img, folder_name, DEBUG: bool = False):  # file_name is defin
     print("write cropped image: " + str(cv2.imwrite(f"{folders[1]}/crop_{iterator}.jpg", cropped_img)))  # save just the droplet
     return total_mask
 
-def ingest(file, RESULTS=RESULTS, FOLDER_PATH=FOLDER_PATH):
-    FILE = os.path.join(FOLDER_PATH, file)
-    img_dir = os.path.join(RESULTS, os.path.splitext(os.path.basename(FILE))[0])
-    if os.path.isdir(img_dir):
-        test = None
-        print(f"already annotated {file}, moving on to next folder")
-    else:
-        annotated = False
-        test = cv2.imread(FILE, cv2.IMREAD_UNCHANGED)
-        if test.dtype == "uint16":
-            print( f"converting {FILE} to uint8 from uint16")
-            print(f"max:{test.max()}, min:{test.min()}")
-            test = cv2.normalize(test, dst=None, alpha=0, beta=255, norm_type=cv2.NORM_MINMAX)
-            test = test.astype('uint8')
-            # cv2.imshow("test", test)
-            # cv2.waitKey(0)
-            # print(test)
-            print(f"max:{test.max()}, min:{test.min()}, shape:{test.shape}, typeL:{test.dtype}")
-            pre, ext = os.path.splitext(FILE)
-            png_file = pre + ".png"
-            
-            # cv2.imwrite(png_file, test)
-        test = cv2.cvtColor(test,cv2.COLOR_GRAY2RGB)
-    return test, img_dir
-            
+# def ingest(file, RESULTS=RESULTS, FOLDER_PATH=FOLDER_PATH):
+#     FILE = os.path.join(FOLDER_PATH, file)
+#     img_dir = os.path.join(RESULTS, os.path.splitext(os.path.basename(FILE))[0])
+#     if os.path.isdir(img_dir):
+#         test = None
+#         print(f"already annotated {file}, moving on to next folder")
+#     else:
+#         annotated = False
+#         test = cv2.imread(FILE, cv2.IMREAD_UNCHANGED)
+#         if test.dtype == "uint16":
+#             print( f"converting {FILE} to uint8 from uint16")
+#             print(f"max:{test.max()}, min:{test.min()}")
+#             test = cv2.normalize(test, dst=None, alpha=0, beta=255, norm_type=cv2.NORM_MINMAX)
+#             test = test.astype('uint8')
+#             # cv2.imshow("test", test)
+#             # cv2.waitKey(0)
+#             # print(test)
+#             print(f"max:{test.max()}, min:{test.min()}, shape:{test.shape}, typeL:{test.dtype}")
+#             pre, ext = os.path.splitext(FILE)
+#             png_file = pre + ".png"
+#
+#             # cv2.imwrite(png_file, test)
+#         test = cv2.cvtColor(test,cv2.COLOR_GRAY2RGB)
+#     return test, img_dir
+#
 
 
 #
@@ -266,13 +267,14 @@ class image_segmenter():
             print(f"Already annoteted: how long it took:    {time.time() - start_time}")    
             return
         sam_res = self.SAM_OBJ.generate(pp_img)
-        segment_image(pp_img, img_dir, sam_res, self.SAM_OBJ.keys, DEBUG = self.DEBUG)
-        print(f"how long it took:    {time.time() - start_time}")   
+        fin_img = segment_image(pp_img, img_dir, sam_res, self.SAM_OBJ.keys, DEBUG = self.DEBUG)
+        print(f"how long it took:    {time.time() - start_time}")
+        return fin_img
         
-    def seg_file(self, FILE: Path):
-        results = self.gen_seg(FILE)
-        segment_image(pp_img, img_dir, sam_res, sam.keys)
-        print(f"how long it took:    {time.time() - start_time}") 
+    # def seg_file(self, FILE: Path):
+    #     results = self.gen_seg(FILE)
+    #     segment_image(pp_img, img_dir, sam_res, sam.keys)
+    #     print(f"how long it took:    {time.time() - start_time}")
         
 
 # sam2 = SAM2(HOME) # This line is for SAM 2 bc it wasnt working super well
@@ -286,7 +288,7 @@ directory_path = Path(FOLDER_PATH)  # Replace with your directory path
 import timeit
 import shutil
 # List all objects in the specified directory and get their full paths
-test = image_segmenter()
+# test = image_segmenter()
 def min(DEBUG):
 
     test.DEBUG = DEBUG
@@ -309,10 +311,10 @@ def min(DEBUG):
     # print("hello")
     return
 
-times = 10
-t = timeit.Timer(lambda: min(True))
-debug_on = t.timeit(times)
-t = timeit.Timer(lambda: min(False))
-debug_off = t.timeit(times)
-
-print(f"degub_on:   {debug_on}, degub_on:   {debug_off}, ")
+# times = 10
+# t = timeit.Timer(lambda: min(True))
+# debug_on = t.timeit(times)
+# t = timeit.Timer(lambda: min(False))
+# debug_off = t.timeit(times)
+#
+# print(f"degub_on:   {debug_on}, degub_on:   {debug_off}, ")

@@ -47,12 +47,16 @@ for file in os.listdir(PATH_IMAGES):
             total_mask += mask_img
             if np.any(total_mask > 255):
                 print("Values bigger than 10 =", total_mask[total_mask > 255])
-                plt.imshow(total_mask)
-                plt.show()            
-        # cv2.imwrite((MASK_RES + ".tif"), total_mask)
+                # plt.imshow(total_mask)
+                # plt.show()
+                #
+
+                # cv2.waitKey(0)
+
+        cv2.imwrite((MASK_RES + ".tif"), total_mask)
         # plt.imshow(total_mask)
         # plt.show()
-
+        # plt.waitforbuttonpress(10)
 
     else:
         print(f"not annotated: {seg_dir}")
