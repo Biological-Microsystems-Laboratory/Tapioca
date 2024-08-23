@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fd187fa-9e91-418a-aa9f-255ff500b0dd" name="Changes" comment="broke it tuuuurying to make data">
+      <change beforePath="$PROJECT_DIR$/.idea/SAM-Microfluidics.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SAM-Microfluidics.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tapioca/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tapioca/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tapioca/segment_hardcode.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tapioca/segment_hardcode.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/toga_gui.spec" beforeDir="false" afterPath="$PROJECT_DIR$/toga_gui.spec" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +54,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "packaging",
     "last_directory_selection": "C:/Users/Dynames/School/LabWork/SAM-Microfluidics",
-    "last_opened_file_path": "C:/Users/Dynames/School/LabWork/SAM-Microfluidics/hello/Tapioca",
+    "last_opened_file_path": "C:/Users/Dynames/School/LabWork/SAM-Microfluidics/hello/src/Tapioca",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -65,6 +66,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Dynames\School\LabWork\SAM-Microfluidics\hello\src\Tapioca" />
       <recent name="C:\Users\Dynames\School\LabWork\SAM-Microfluidics\hello\Tapioca" />
       <recent name="C:\Users\Dynames\School\LabWork\SAM-Microfluidics\Tapioca" />
       <recent name="C:\Users\Dynames\School\LabWork\SAM-Microfluidics\Model_OBJ" />
@@ -170,7 +172,7 @@
       <workItem from="1721837794184" duration="13422000" />
       <workItem from="1724128775078" duration="2928000" />
       <workItem from="1724213844739" duration="1823000" />
-      <workItem from="1724355081309" duration="34360000" />
+      <workItem from="1724355081309" duration="36718000" />
     </task>
     <task id="LOCAL-00001" summary="uhh">
       <option name="closed" value="true" />
