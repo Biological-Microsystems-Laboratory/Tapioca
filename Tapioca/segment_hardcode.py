@@ -36,7 +36,7 @@ class image_segmenter():
         self.WEIGHTS = WEIGHTS
 
         module_name = MODEL.lower()
-        module = importlib.import_module(f"Models.{module_name}")
+        module = importlib.import_module(module_name)
         SAM_class = getattr(module, self.MODEL, None)
         self.SAM_OBJ = SAM_class(self.DEVICE, self.WEIGHTS)
 

@@ -25,7 +25,7 @@ exe = EXE(
     a.scripts,
     a.binaries,
     a.datas,
-    [('v', None, 'OPTION')],
+    [],
     name='toga_gui',
     debug=False,
     bootloader_ignore_signals=False,

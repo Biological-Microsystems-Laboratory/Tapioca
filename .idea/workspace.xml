@@ -5,126 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fd187fa-9e91-418a-aa9f-255ff500b0dd" name="Changes" comment="broke it tuuuurying to make data">
-      <change afterPath="$PROJECT_DIR$/Tapioca/GUI.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tapioca/Models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tapioca/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/toga_gui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SAM-Microfluidics.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SAM-Microfluidics.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hello/LICENSE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BasicMaskandJSON.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/COCO_Converter.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Circularity.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cropping.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dataset explorer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/100_30_1.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/100_30_2.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/100_30_3.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/100_30_4.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/100_30_5.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/30_30_1.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/30_30_2.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/30_30_3.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/30_30_4.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/30_30_5.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/45_30_1.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/45_30_2.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/45_30_3.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/45_30_4.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/45_30_5.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/60_30_1.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/60_30_2.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/60_30_3.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/60_30_4.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/60_30_5.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/75_30_1.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/75_30_2.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/75_30_3.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/75_30_4.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/75_30_5.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/90_30_1.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/90_30_2.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/90_30_3.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/90_30_4.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/90_30_5.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/90_30_6.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_1.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_10.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_11.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_12.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_13.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_14.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_15.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_2.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_3.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_4.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_5.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_6.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_7.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_8.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_9.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS1_1.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS1_10.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS1_2.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS1_3.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS1_4.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS1_5.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS1_6.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS1_7.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS1_8.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS1_9.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS2_1.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS2_10.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS2_2.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS2_3.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS2_4.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS2_5.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS2_6.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS2_7.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS2_8.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS2_9.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/Fastsam.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tapioca/Models/Fastsam.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/msam.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tapioca/Models/msam.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tapioca/Models/sam.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/_C.pyd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/automatic_mask_generator.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/build_sam.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/csrc/connected_components.cu" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/modeling/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/modeling/backbones/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/modeling/backbones/hieradet.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/modeling/backbones/image_encoder.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/modeling/backbones/utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/modeling/memory_attention.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/modeling/memory_encoder.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/modeling/position_encoding.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/modeling/sam/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/modeling/sam/mask_decoder.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/modeling/sam/prompt_encoder.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/modeling/sam/transformer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/modeling/sam2_base.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/modeling/sam2_utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/sam2_image_predictor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/sam2_video_predictor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/utils/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/utils/amg.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/utils/misc.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/utils/transforms.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_Env.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Weights/mobile_sam.pt" beforeDir="false" afterPath="$PROJECT_DIR$/Tapioca/Models/Weights/mobile_sam.pt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/check_overlap.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/create_training.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/environment.yml" beforeDir="false" afterPath="$PROJECT_DIR$/environment.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/help_me.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/helpers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interface_QT.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interface_tk.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nesting_check.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tapioca/GUI.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tapioca/Models/msam.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tapioca/msam.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tapioca/Models/sam.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tapioca/sam.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tapioca/segment_hardcode.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tapioca/segment_hardcode.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/base.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/results.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/results.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/total_mask.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +60,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "packaging",
     "last_directory_selection": "C:/Users/Dynames/School/LabWork/SAM-Microfluidics",
-    "last_opened_file_path": "C:/Users/Dynames/School/LabWork/SAM-Microfluidics/Tapioca",
+    "last_opened_file_path": "C:/Users/Dynames/School/LabWork/SAM-Microfluidics/hello/Tapioca",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -182,12 +72,14 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Dynames\School\LabWork\SAM-Microfluidics\hello\Tapioca" />
       <recent name="C:\Users\Dynames\School\LabWork\SAM-Microfluidics\Tapioca" />
       <recent name="C:\Users\Dynames\School\LabWork\SAM-Microfluidics\Model_OBJ" />
       <recent name="C:\Users\Dynames\School\LabWork\SAM-Microfluidics" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Dynames\School\LabWork\SAM-Microfluidics\Tapioca" />
+      <recent name="C:\Users\Dynames\School\LabWork\SAM-Microfluidics\Checkpoint images" />
       <recent name="C:\Users\Dynames\School\LabWork\SAM-Microfluidics" />
       <recent name="C:\Users\Dynames\School\LabWork\SAM-Microfluidics\Tapioca\Models" />
       <recent name="C:\Users\Dynames\School\LabWork\SAM-Microfluidics\Weights" />
@@ -285,7 +177,7 @@
       <workItem from="1721837794184" duration="13422000" />
       <workItem from="1724128775078" duration="2928000" />
       <workItem from="1724213844739" duration="1823000" />
-      <workItem from="1724355081309" duration="31538000" />
+      <workItem from="1724355081309" duration="32551000" />
     </task>
     <task id="LOCAL-00001" summary="uhh">
       <option name="closed" value="true" />
@@ -335,19 +227,8 @@
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Tapioca/GUI.py</url>
-          <line>92</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Tapioca/GUI.py</url>
-          <line>93</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Tapioca/GUI.py</url>
-          <line>74</line>
-          <option name="timeStamp" value="18" />
+          <url>file://$PROJECT_DIR$/Tapioca/msam.py</url>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
