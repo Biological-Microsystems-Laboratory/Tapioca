@@ -5,14 +5,126 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fd187fa-9e91-418a-aa9f-255ff500b0dd" name="Changes" comment="broke it tuuuurying to make data">
-      <change afterPath="$PROJECT_DIR$/Model_OBJ/Fastsam.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tapioca/GUI.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tapioca/Models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tapioca/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/toga_gui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/SAM-Microfluidics.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SAM-Microfluidics.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Circularity.py" beforeDir="false" afterPath="$PROJECT_DIR$/Circularity.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model_OBJ/sam.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/create_training.py" beforeDir="false" afterPath="$PROJECT_DIR$/create_training.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/help_me.py" beforeDir="false" afterPath="$PROJECT_DIR$/help_me.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BasicMaskandJSON.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/COCO_Converter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Circularity.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cropping.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dataset explorer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/100_30_1.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/100_30_2.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/100_30_3.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/100_30_4.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/100_30_5.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/30_30_1.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/30_30_2.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/30_30_3.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/30_30_4.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/30_30_5.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/45_30_1.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/45_30_2.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/45_30_3.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/45_30_4.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/45_30_5.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/60_30_1.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/60_30_2.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/60_30_3.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/60_30_4.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/60_30_5.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/75_30_1.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/75_30_2.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/75_30_3.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/75_30_4.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/75_30_5.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/90_30_1.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/90_30_2.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/90_30_3.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/90_30_4.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/90_30_5.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/90_30_6.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_1.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_10.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_11.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_12.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_13.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_14.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_15.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_2.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_3.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_4.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_5.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_6.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_7.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_8.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPELTS_9.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS1_1.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS1_10.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS1_2.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS1_3.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS1_4.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS1_5.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS1_6.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS1_7.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS1_8.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS1_9.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS2_1.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS2_10.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS2_2.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS2_3.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS2_4.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS2_5.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS2_6.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS2_7.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS2_8.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MASKS/DROPLETS2_9.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_OBJ/Fastsam.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tapioca/Models/Fastsam.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_OBJ/msam.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tapioca/Models/msam.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tapioca/Models/sam.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/_C.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/automatic_mask_generator.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/build_sam.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/csrc/connected_components.cu" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/modeling/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/modeling/backbones/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/modeling/backbones/hieradet.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/modeling/backbones/image_encoder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/modeling/backbones/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/modeling/memory_attention.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/modeling/memory_encoder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/modeling/position_encoding.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/modeling/sam/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/modeling/sam/mask_decoder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/modeling/sam/prompt_encoder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/modeling/sam/transformer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/modeling/sam2_base.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/modeling/sam2_utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/sam2_image_predictor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/sam2_video_predictor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/utils/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/utils/amg.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/utils/misc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model_OBJ/sam2/utils/transforms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Env.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Weights/mobile_sam.pt" beforeDir="false" afterPath="$PROJECT_DIR$/Tapioca/Models/Weights/mobile_sam.pt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/check_overlap.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/create_training.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/environment.yml" beforeDir="false" afterPath="$PROJECT_DIR$/environment.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/help_me.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interface_QT.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/interface_tk.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nesting_check.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,34 +155,41 @@
   "keyToString": {
     "Python.Circularity.executor": "Run",
     "Python.Default_masking.executor": "Run",
-    "Python.Main.executor": "Debug",
+    "Python.GUI.executor": "Run",
+    "Python.Main.executor": "Run",
     "Python.copy_of_how_to_segment_anything_with_sam (1).executor": "Run",
     "Python.create_training.executor": "Run",
     "Python.help_me.executor": "Debug",
+    "Python.interface_tk.executor": "Debug",
     "Python.main.executor": "Run",
     "Python.sam.executor": "Run",
+    "Python.segment_hardcode.executor": "Run",
+    "Python.toga_gui.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "packaging",
     "last_directory_selection": "C:/Users/Dynames/School/LabWork/SAM-Microfluidics",
-    "last_opened_file_path": "C:/Users/Dynames/School/LabWork/SAM-Microfluidics/Model_OBJ",
+    "last_opened_file_path": "C:/Users/Dynames/School/LabWork/SAM-Microfluidics/Tapioca",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "a.a.a.g.b",
+    "settings.editor.selected.configurable": "vcs.Perforce",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Dynames\School\LabWork\SAM-Microfluidics\Tapioca" />
       <recent name="C:\Users\Dynames\School\LabWork\SAM-Microfluidics\Model_OBJ" />
       <recent name="C:\Users\Dynames\School\LabWork\SAM-Microfluidics" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Dynames\School\LabWork\SAM-Microfluidics\Tapioca" />
       <recent name="C:\Users\Dynames\School\LabWork\SAM-Microfluidics" />
+      <recent name="C:\Users\Dynames\School\LabWork\SAM-Microfluidics\Tapioca\Models" />
       <recent name="C:\Users\Dynames\School\LabWork\SAM-Microfluidics\Weights" />
     </key>
   </component>
@@ -99,11 +218,40 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="interface_tk" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SAM-Microfluidics" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Tapioca" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Dynames\School\LabWork\SAM-Microfluidics\interface_tk.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.interface_tk" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-eebebe6c2be4-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.15325.20" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-PY-242.20224.347" />
+        <option value="bundled-python-sdk-c2d6afa66fbe-39cff9de6eef-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.20224.347" />
       </set>
     </attachedChunks>
   </component>
@@ -135,6 +283,9 @@
       <workItem from="1721774893689" duration="10000" />
       <workItem from="1721774945633" duration="6522000" />
       <workItem from="1721837794184" duration="13422000" />
+      <workItem from="1724128775078" duration="2928000" />
+      <workItem from="1724213844739" duration="1823000" />
+      <workItem from="1724355081309" duration="31538000" />
     </task>
     <task id="LOCAL-00001" summary="uhh">
       <option name="closed" value="true" />
@@ -179,31 +330,54 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>54</line>
-          <option name="timeStamp" value="9" />
+          <url>file://$PROJECT_DIR$/interface_tk.py</url>
+          <line>60</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>161</line>
-          <option name="timeStamp" value="14" />
+          <url>file://$PROJECT_DIR$/Tapioca/GUI.py</url>
+          <line>92</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>164</line>
-          <option name="timeStamp" value="15" />
+          <url>file://$PROJECT_DIR$/Tapioca/GUI.py</url>
+          <line>93</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Tapioca/GUI.py</url>
+          <line>74</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="width" />
+        <watch expression="height" />
+        <watch expression="new_width" />
+        <watch expression="new_height" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SAM_Microfluidics$Circularity.coverage" NAME="Circularity Coverage Results" MODIFIED="1720729473559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/SAM_Microfluidics$Default_masking.coverage" NAME="Default_masking Coverage Results" MODIFIED="1720194955633" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SAM_Microfluidics$create_training.coverage" NAME="create_training Coverage Results" MODIFIED="1721834939077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/SAM_Microfluidics$sam.coverage" NAME="sam Coverage Results" MODIFIED="1720724739156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Model_OBJ" />
+    <SUITE FILE_PATH="coverage/SAM_Microfluidics$help_me.coverage" NAME="help_me Coverage Results" MODIFIED="1724367994476" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Tapioca" />
+    <SUITE FILE_PATH="coverage/SAM_Microfluidics$interface_QT.coverage" NAME="interface_QT Coverage Results" MODIFIED="1723794239782" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SAM_Microfluidics$copy_of_how_to_segment_anything_with_sam__1_.coverage" NAME="copy_of_how_to_segment_anything_with_sam (1) Coverage Results" MODIFIED="1720729082666" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SAM_Microfluidics$interface.coverage" NAME="interface Coverage Results" MODIFIED="1723785965019" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SAM_Microfluidics$check_overlap.coverage" NAME="check_overlap Coverage Results" MODIFIED="1723797756100" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SAM_Microfluidics$.coverage" NAME=" Coverage Results" MODIFIED="1723752688422" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SAM_Microfluidics$segment_hardcode.coverage" NAME="segment_hardcode Coverage Results" MODIFIED="1724392874952" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Tapioca" />
+    <SUITE FILE_PATH="coverage/SAM_Microfluidics$COCO_Converter.coverage" NAME="COCO_Converter Coverage Results" MODIFIED="1723792494664" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SAM_Microfluidics$Circularity.coverage" NAME="Circularity Coverage Results" MODIFIED="1720729473559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SAM_Microfluidics$Main.coverage" NAME="Main Coverage Results" MODIFIED="1724183991609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/SAM_Microfluidics$main.coverage" NAME="main Coverage Results" MODIFIED="1721835013071" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/SAM_Microfluidics$help_me.coverage" NAME="help_me Coverage Results" MODIFIED="1721754913672" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/SAM_Microfluidics$Main.coverage" NAME="Main Coverage Results" MODIFIED="1721874096757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/SAM_Microfluidics$GUI.coverage" NAME="GUI Coverage Results" MODIFIED="1724392878092" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Tapioca" />
+    <SUITE FILE_PATH="coverage/SAM_Microfluidics$sam.coverage" NAME="sam Coverage Results" MODIFIED="1720724739156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Model_OBJ" />
+    <SUITE FILE_PATH="coverage/SAM_Microfluidics$Dataset_explorer.coverage" NAME="Dataset explorer Coverage Results" MODIFIED="1723752751512" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SAM_Microfluidics$interface_tk.coverage" NAME="interface_tk Coverage Results" MODIFIED="1724368725051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Tapioca" />
+    <SUITE FILE_PATH="coverage/SAM_Microfluidics$Default_masking.coverage" NAME="Default_masking Coverage Results" MODIFIED="1720194955633" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SAM_Microfluidics$toga_gui.coverage" NAME="toga_gui Coverage Results" MODIFIED="1724395790824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Tapioca" />
   </component>
 </project>
