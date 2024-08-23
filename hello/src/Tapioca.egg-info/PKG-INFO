@@ -1,8 +1,8 @@
 Metadata-Version: 2.1
-Name: example_package_YOUR_USERNAME_HERE
-Version: 0.0.1
-Summary: A small example package
-Author-email: Example Author <author@example.com>
+Name: Tapioca
+Version: 0.0.2
+Summary: A UI to use SAM to quantify droplet geometry
+Author-email: Advik Sikligar <asikl2@uic.edu>
 Project-URL: Homepage, https://github.com/pypa/sampleproject
 Project-URL: Issues, https://github.com/pypa/sampleproject/issues
 Classifier: Programming Language :: Python :: 3

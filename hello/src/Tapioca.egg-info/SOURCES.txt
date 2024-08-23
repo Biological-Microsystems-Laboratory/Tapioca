@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+src/Tapioca/Circularity.py
+src/Tapioca/__init__.py
+src/Tapioca/__main__.py
+src/Tapioca/help_me.py
+src/Tapioca/msam.py
+src/Tapioca/sam.py
+src/Tapioca/segment_hardcode.py
+src/Tapioca/toga_gui.py
+src/Tapioca.egg-info/PKG-INFO
+src/Tapioca.egg-info/SOURCES.txt
+src/Tapioca.egg-info/dependency_links.txt
+src/Tapioca.egg-info/entry_points.txt
+src/Tapioca.egg-info/requires.txt
+src/Tapioca.egg-info/top_level.txt

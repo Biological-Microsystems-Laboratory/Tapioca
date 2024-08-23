@@ -30,6 +30,9 @@ class ImageEditor:
         self.modify_button = tk.Button(self.root, text="Apply Modification", command=self.modify_image)
         self.modify_button.pack(pady=10)
 
+        self.scale_input = tk.Entry(self.root,text="Scale (px/um)", command=self.set_scale)
+        self.scale_input.pack(pady=10)
+
         self.image_frame = tk.Frame(self.root)
         self.image_frame.pack(expand=True, fill="both", padx=10, pady=10)
 
@@ -44,6 +47,10 @@ class ImageEditor:
         if weights_path:
             print(f"Selected weights file: {weights_path}")
             self.weights = Path(weights_path)
+
+    def set_scale(self):
+        self.image_scale = self.scale_input.get()
+        print(f"the scale is {self.image_scale}")
 
     def open_results_folder(self):
         results_folder = filedialog.askdirectory(title="Select Results Folder")
@@ -93,7 +100,7 @@ class ImageEditor:
         modification = self.modification.get()
         print(f"Applying {modification} modification")
         try:
-            self.SAM_ob = image_segmenter(self.weights, self.results_folder, modification)
+            self.SAM_ob = image_segmenter(self.wxeights, self.results_folder, modification, SCALE=int(self.image_scale))
             fin_image = self.SAM_ob.gen_seg(self.image_path)
             self.aspect_ratio = fin_image.shape[1] / fin_image.shape[0]
             self.current_image = Image.fromarray(fin_image)
