@@ -19,7 +19,6 @@ class image_segmenter():
     DEVICE = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
     DEBUG = False
     SAVE_RESULTS = False
-    SCALE = False
     COCO = False
     SCALE = 6.0755
     def __init__(self,
@@ -36,8 +35,8 @@ class image_segmenter():
         self.WEIGHTS = WEIGHTS
 
         module_name = MODEL.lower()
-        module = importlib.import_module(module_name)
-        SAM_class = getattr(module, self.MODEL, None)
+        module = importlib.import_module(f"Tapioca.{module_name}")
+        SAM_class = getattr(module, self.MODEL)
         self.SAM_OBJ = SAM_class(self.DEVICE, self.WEIGHTS)
 
         return
