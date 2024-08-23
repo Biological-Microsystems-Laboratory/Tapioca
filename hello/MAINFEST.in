@@ -1,0 +1,4 @@
+# MANIFEST.in
+
+include src/Tapioca/Weights/*.pt
+include src/Tapioca/Weights/*.pth
