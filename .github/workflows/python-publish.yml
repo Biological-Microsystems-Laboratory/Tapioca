@@ -30,7 +30,9 @@ jobs:
         pip install build
     - name: Build package
       run: python -m build
-    - name: Archive code coverage results
+      # the previous command creates a dist folder with the built package
+
+    - name: Save whl artifact
       uses: actions/upload-artifact@v4
       with:
         name: wheel
