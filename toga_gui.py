@@ -100,7 +100,7 @@ class ImageEditor:
         modification = self.modification.get()
         print(f"Applying {modification} modification")
         try:
-            self.SAM_ob = image_segmenter(self.wxeights, self.results_folder, modification, SCALE=int(self.image_scale))
+            self.SAM_ob = image_segmenter(self.weights, self.results_folder, modification, SCALE=int(self.image_scale))
             fin_image = self.SAM_ob.gen_seg(self.image_path)
             self.aspect_ratio = fin_image.shape[1] / fin_image.shape[0]
             self.current_image = Image.fromarray(fin_image)

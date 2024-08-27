@@ -6,11 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7fd187fa-9e91-418a-aa9f-255ff500b0dd" name="Changes" comment="broke it tuuuurying to make data">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/MAINFEST.in" beforeDir="false" afterPath="$PROJECT_DIR$/hello/MAINFEST.in" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/dist/example_package_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl" beforeDir="false" afterPath="$PROJECT_DIR$/hello/dist/example_package_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/dist/example_package_your_username_here-0.0.1.tar.gz" beforeDir="false" afterPath="$PROJECT_DIR$/hello/dist/example_package_your_username_here-0.0.1.tar.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/hello/pyproject.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/src/Tapioca/Weights/mobile_sam.pt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/toga_gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/toga_gui.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +78,7 @@
       <recent name="C:\Users\Dynames\School\LabWork\SAM-Microfluidics\Tapioca\Models" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.Main">
     <configuration name="Main" type="PythonConfigurationType" factoryName="Python">
       <module name="SAM-Microfluidics" />
       <option name="ENV_FILES" value="" />
@@ -177,6 +172,7 @@
       <workItem from="1724213844739" duration="1823000" />
       <workItem from="1724355081309" duration="39300000" />
       <workItem from="1724422592279" duration="5122000" />
+      <workItem from="1724733792189" duration="344000" />
     </task>
     <task id="LOCAL-00001" summary="uhh">
       <option name="closed" value="true" />
@@ -284,13 +280,13 @@
     <SUITE FILE_PATH="coverage/SAM_Microfluidics$segment_hardcode.coverage" NAME="segment_hardcode Coverage Results" MODIFIED="1724401144673" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hello/src/Tapioca" />
     <SUITE FILE_PATH="coverage/SAM_Microfluidics$COCO_Converter.coverage" NAME="COCO_Converter Coverage Results" MODIFIED="1723792494664" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SAM_Microfluidics$Circularity.coverage" NAME="Circularity Coverage Results" MODIFIED="1720729473559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/SAM_Microfluidics$Main.coverage" NAME="Main Coverage Results" MODIFIED="1724183991609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/SAM_Microfluidics$Main.coverage" NAME="Main Coverage Results" MODIFIED="1724700310783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/SAM_Microfluidics$main.coverage" NAME="main Coverage Results" MODIFIED="1721835013071" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SAM_Microfluidics$GUI.coverage" NAME="GUI Coverage Results" MODIFIED="1724392878092" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Tapioca" />
     <SUITE FILE_PATH="coverage/SAM_Microfluidics$sam.coverage" NAME="sam Coverage Results" MODIFIED="1720724739156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Model_OBJ" />
     <SUITE FILE_PATH="coverage/SAM_Microfluidics$Dataset_explorer.coverage" NAME="Dataset explorer Coverage Results" MODIFIED="1723752751512" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SAM_Microfluidics$interface_tk.coverage" NAME="interface_tk Coverage Results" MODIFIED="1724368725051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Tapioca" />
     <SUITE FILE_PATH="coverage/SAM_Microfluidics$Default_masking.coverage" NAME="Default_masking Coverage Results" MODIFIED="1720194955633" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/SAM_Microfluidics$toga_gui.coverage" NAME="toga_gui Coverage Results" MODIFIED="1724424473501" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SAM_Microfluidics$toga_gui.coverage" NAME="toga_gui Coverage Results" MODIFIED="1724700329205" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hello/src/Tapioca" />
   </component>
 </project>
