@@ -3,8 +3,13 @@
 /__pycache__/
 /Results/
 /Results(old)/
-/Model_OBJ/__pycache__/
-/Weights/
+/Tapioca/Models/__pycache__/
+/Tapioca/Models/Weights/
 /Results (mSAM)
 /Results (sam_orig)
 /Results (SAM2)
+/briefcase
+/build
+/dist
+/testy
+.idea/workspace.xml

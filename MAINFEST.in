@@ -1,0 +1,4 @@
+# MANIFEST.in
+
+include src/Tapioca/*.pt
+include src/Tapioca/*.pth
