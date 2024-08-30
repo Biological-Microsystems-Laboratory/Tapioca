@@ -73,10 +73,10 @@ class image_segmenter():
             if not png_file.exists():
                 # Save the processed image as a PNG file
                 cv2.imwrite(png_file, img)    
-        # Convert the image to RGB format
+            # Convert the image to RGB format
+            img = cv2.cvtColor(img, cv2.COLOR_GRAY2RGB)
         print("ingest done")
-        img = cv2.cvtColor(img, cv2.COLOR_GRAY2RGB)
-        
+
         return img
 
     def segment_image(self, image_bgr, img_name:Path, sam_result, DEBUG = False):

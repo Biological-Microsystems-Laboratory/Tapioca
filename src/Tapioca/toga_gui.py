@@ -3,11 +3,9 @@ from tkinter import filedialog, messagebox, ttk
 from PIL import Image, ImageTk
 from pathlib import Path
 
-from .segment_hardcode import image_segmenter
+from Tapioca.segment_hardcode import image_segmenter
 
 class ImageEditor:
-    weights = Path("Weights/mobile_sam.pt")
-    results_folder = Path(f"Results")
     def __init__(self):
         self.root = tk.Tk()
         self.root.title("Image Editor")
@@ -32,6 +30,9 @@ class ImageEditor:
         self.modify_button = tk.Button(self.root, text="Apply Modification", command=self.modify_image)
         self.modify_button.pack(pady=10)
 
+        self.scale_input = tk.Entry(self.root,text="Scale (px/um)")
+        self.scale_input.pack(pady=10)
+
         self.image_frame = tk.Frame(self.root)
         self.image_frame.pack(expand=True, fill="both", padx=10, pady=10)
 
@@ -46,6 +47,10 @@ class ImageEditor:
         if weights_path:
             print(f"Selected weights file: {weights_path}")
             self.weights = Path(weights_path)
+
+    def set_scale(self):
+        self.image_scale = self.scale_input.get()
+        print(f"the scale is {self.image_scale}")
 
     def open_results_folder(self):
         results_folder = filedialog.askdirectory(title="Select Results Folder")
@@ -88,6 +93,7 @@ class ImageEditor:
             self.root.after(100, self.display_image)
 
     def modify_image(self):
+        set_scale()
         if not hasattr(self, 'image_path'):
             messagebox.showerror("Error", "Please open an image first.")
             return
@@ -95,7 +101,7 @@ class ImageEditor:
         modification = self.modification.get()
         print(f"Applying {modification} modification")
         try:
-            self.SAM_ob = image_segmenter(self.weights, self.results_folder, modification)
+            self.SAM_ob = image_segmenter(self.weights, self.results_folder, modification, SCALE=int(self.image_scale))
             fin_image = self.SAM_ob.gen_seg(self.image_path)
             self.aspect_ratio = fin_image.shape[1] / fin_image.shape[0]
             self.current_image = Image.fromarray(fin_image)
