@@ -1,9 +1,17 @@
 import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
-from PIL import Image, ImageTk
+from PIL import ImageTk, Image
 from pathlib import Path
 
 from Tapioca.segment_hardcode import image_segmenter
+
+def normalize_PIL(image_path):
+    image = cv2.imread(str(image_path))
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    image = cv2.normalize(image, None, 0, 255, cv2.NORM_MINMAX)
+
+    return image
+
 
 class ImageEditor:
     def __init__(self):
@@ -64,7 +72,9 @@ class ImageEditor:
             if file_path.endswith((".tiff", ".tif")):
                 messagebox.showinfo("Modification Applied", f"Image path: {file_path} but its not going to show")
                 self.image_path = Path(file_path)
-            self.current_image = Image.open(file_path)
+                self.current_image = Image.fromarray(normalize_PIL(self.image_path).astype('uint8'), 'RGB')
+            else:
+                self.current_image = Image.open(self.image_path)
             self.aspect_ratio = self.current_image.width / self.current_image.height
             self.display_image()
             self.image_path = Path(file_path)
@@ -93,7 +103,7 @@ class ImageEditor:
             self.root.after(100, self.display_image)
 
     def modify_image(self):
-        set_scale()
+        self.set_scale()
         if not hasattr(self, 'image_path'):
             messagebox.showerror("Error", "Please open an image first.")
             return

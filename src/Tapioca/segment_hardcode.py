@@ -13,6 +13,7 @@ import cv2
 from Tapioca.Circularity import process_image
 from Tapioca.help_me import binary_mask_to_rle_np, draw_mask, expand_bbox, label_droplets_indices, save_mask
 from Tapioca.msam import mSAM
+from Tapioca.Overlap import find_overlap
 
 
 class image_segmenter():
@@ -97,6 +98,8 @@ class image_segmenter():
             print(f"drop folder: {drop_folder}, exists: {drop_folder.exists()}")
 
         final_image = image_bgr.copy()
+        overlap_image = np.zeros([image_bgr.shape[0], image_bgr.shape[1]])
+
         df = pd.DataFrame()
         colors = distinctipy.get_colors(len(sam_result))
         colors = [[r * 255, g * 255, b * 255] for r, g, b in colors]
@@ -120,6 +123,7 @@ class image_segmenter():
                     final_image = save_mask(segment, final_image, drop_folder, DEBUG=DEBUG)
                     if self.COCO:
                         rle = binary_mask_to_rle_np(segment["segmentation"])
+                overlap_image = find_overlap(segment, overlap_image)
                 final_image = draw_mask(final_image, segment["segmentation"], fill_value = (segment["Red"],segment["Green"],segment["Blue"]))
                 final_image = label_droplets_indices(final_image, segment,
                                                      text_color=distinctipy.get_text_color((segment["Red"],segment["Green"],segment["Blue"])))
