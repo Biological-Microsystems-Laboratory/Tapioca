@@ -2,14 +2,15 @@ import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
 from PIL import ImageTk, Image
 from pathlib import Path
+import cv2
 
-from Tapioca.segment_hardcode import image_segmenter
+from segment_hardcode import image_segmenter
 
 def normalize_PIL(image_path):
     image = cv2.imread(str(image_path))
-    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    image = cv2.normalize(image, None, 0, 255, cv2.NORM_MINMAX)
-
+    image = cv2.normalize(image, None, 0, 255, norm_type=cv2.NORM_MINMAX)
+    image = image.astype('uint8')
+    # image = cv2.cvtColor(image, cv2.COLOR_BRG2RGB)
     return image
 
 

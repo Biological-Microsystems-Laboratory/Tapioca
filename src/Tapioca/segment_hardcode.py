@@ -10,10 +10,10 @@ import pandas as pd
 import torch
 import cv2
 
-from Tapioca.Circularity import process_image
-from Tapioca.help_me import binary_mask_to_rle_np, draw_mask, expand_bbox, label_droplets_indices, save_mask
-from Tapioca.msam import mSAM
-from Tapioca.Overlap import find_overlap
+from Circularity import process_image
+from help_me import binary_mask_to_rle_np, draw_mask, expand_bbox, label_droplets_indices, save_mask
+from msam import mSAM
+from Overlap import find_overlap
 
 
 class image_segmenter():
