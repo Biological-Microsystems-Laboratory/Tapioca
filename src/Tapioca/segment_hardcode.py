@@ -3,17 +3,22 @@ import time
 from typing import Tuple, Optional
 from pathlib import Path
 
-
 import distinctipy
 import numpy as np
 import pandas as pd
 import torch
 import cv2
 
-from Circularity import process_image
-from help_me import binary_mask_to_rle_np, draw_mask, expand_bbox, label_droplets_indices, save_mask
-from msam import mSAM
-from Overlap import find_overlap
+try:
+    from .Circularity import process_image
+    from .help_me import binary_mask_to_rle_np, draw_mask, expand_bbox, label_droplets_indices, save_mask
+    from .msam import mSAM
+    from .Overlap import find_overlap
+except ImportError:
+    from Circularity import process_image
+    from help_me import binary_mask_to_rle_np, draw_mask, expand_bbox, label_droplets_indices, save_mask
+    from msam import mSAM
+    from Overlap import find_overlap
 
 
 class image_segmenter():
@@ -171,5 +176,5 @@ class image_segmenter():
     #     results = self.gen_seg(FILE)
     #     segment_image(pp_img, img_dir, sam_res, sam.keys)
     #     print(f"how long it took:    {time.time() - start_time}")
-        
+
 

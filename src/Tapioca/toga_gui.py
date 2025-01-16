@@ -6,7 +6,10 @@ import cv2
 import tifffile as tiff
 import numpy as np
 
-from segment_hardcode import image_segmenter
+try:
+    from .segment_hardcode import image_segmenter
+except ImportError:
+    from segment_hardcode import image_segmenter
 
 def open_tiff_image(file_path):
     tiff_image = tiff.imread(file_path)
@@ -78,6 +81,11 @@ class ImageEditor:
         self.scale_input = tk.Entry(self.scale_frame, bg="#444444", fg="#ffffff", insertbackground="white")
         self.scale_input.pack(side="left", padx=10)
 
+
+        self.debug_button = tk.Button(self.buttons_frame, text="Debug", command=self.debug_mode,relief="raised", **button_style)
+        self.debug_button.pack(side="left", padx=10)
+
+
         # Image Display Frame
         self.image_frame = tk.Frame(self.root, bg="#1c1c1c")
         self.image_frame.pack(expand=True, fill="both", padx=20, pady=20)
@@ -98,7 +106,15 @@ class ImageEditor:
         self.image_path = None
         self.weights = None
         self.results_folder = None
+        self.DEBUG = False
 
+    def debug_mode(self):
+        if self.debug_button.config('relief')[-1] == 'sunken':
+            self.debug_button.config(relief="raised")
+            self.DEBUG = False
+        else:
+            self.debug_button.config(relief="sunken")
+            self.DEBUG = True
 
     def open_weights(self):
         """Open and select weights file."""
@@ -170,7 +186,7 @@ class ImageEditor:
 
         try:
             # Assuming image_segmenter and gen_seg are defined elsewhere
-            self.SAM_ob = image_segmenter(self.weights, self.results_folder, modification, SCALE=int(self.image_scale))
+            self.SAM_ob = image_segmenter(self.weights, self.results_folder, modification, SCALE=int(self.image_scale), DEBUG=self.DEBUG)
             final_image = self.SAM_ob.gen_seg(self.image_path)
             self.current_image = Image.fromarray(final_image)
             self.display_image()
