@@ -28,7 +28,6 @@ class image_segmenter():
     SAVE_RESULTS = False
     SCALE = False
     COCO = False
-    SCALE = 6.0755
     def __init__(self,
                  WEIGHTS: Path = Path("Weights/mobile_sam.pt"),
                  RESULTS: Path = Path(f"Results ({MODEL})"),
@@ -41,6 +40,7 @@ class image_segmenter():
         self.RESULTS_FOLDER = RESULTS
         self.MODEL = MODEL
         self.WEIGHTS = WEIGHTS
+        self.SCALE = SCALE
 
         module_name = MODEL.lower()
         module = importlib.import_module(f"Tapioca.{module_name}")
