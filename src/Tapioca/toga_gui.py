@@ -77,7 +77,7 @@ class ImageEditor:
         # Scale Entry Frame
         self.scale_frame = tk.Frame(self.root, bg="#2E2E2E")
         self.scale_frame.pack(pady=10, padx=20, fill="x")
-        tk.Label(self.scale_frame, text="Scale (px/um):", bg="#2E2E2E", fg="#ffffff", font=("Arial", 12)).pack(side="left")
+        tk.Label(self.scale_frame, text="Scale (um/px):", bg="#2E2E2E", fg="#ffffff", font=("Arial", 12)).pack(side="left")
         self.scale_input = tk.Entry(self.scale_frame, bg="#444444", fg="#ffffff", insertbackground="white")
         self.scale_input.pack(side="left", padx=10)
 
@@ -125,7 +125,7 @@ class ImageEditor:
 
     def set_scale(self):
         """Set the scale input value."""
-        self.image_scale = self.scale_input.get()
+        self.image_scale = float(self.scale_input.get())
         print(f"The scale is {self.image_scale}")
 
     def open_results_folder(self):
