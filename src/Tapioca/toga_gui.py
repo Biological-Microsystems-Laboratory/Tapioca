@@ -186,7 +186,7 @@ class ImageEditor:
 
         try:
             # Assuming image_segmenter and gen_seg are defined elsewhere
-            self.SAM_ob = image_segmenter(self.weights, self.results_folder, modification, SCALE=int(self.image_scale), DEBUG=self.DEBUG)
+            self.SAM_ob = image_segmenter(self.weights, self.results_folder, modification, SCALE=(self.image_scale), DEBUG=self.DEBUG)
             final_image = self.SAM_ob.gen_seg(self.image_path)
             self.current_image = Image.fromarray(final_image)
             self.display_image()
